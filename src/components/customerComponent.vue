@@ -50,23 +50,26 @@
     </div>
     <div v-if="isResponse">
       <div class="beige-bg">
-        <h1 class="text-center .text-color">YOUR SCHEMES</h1>
+        <h1 class="text-center text-color">WE HAVE SORTED YOUR SCHEMES!</h1>
+        <h2 class="text-center text-color">Take a look!</h2>
         <div class="container">
             <div class="col-md-3 mb-4" v-for="card in cards" :key="card.id">
               <div class="card" v-if="card.active==='true'">
                 <img :src="card.image" class="card-img-top" alt="Card Image">
                 <div class="card-body">
-                  <h5 class="card-title">{{ card.title }}</h5>
-                  <h5 class="card-title">{{ card.lenderName }}</h5>
-                  <div>
-                  <div>
-                    <p class="card-text">LTV: {{ card.ltv }}</p>
-                    <p class="card-text">ROI: {{ card.roi }}</p>
-                  </div>
-                  <div>
-                    <p class="card-text">TENURE: {{ card.tenure }}</p>
-                    <p class="card-text">RATING: {{ card.rating }}</p>
-                  </div>
+                  <div class="card-title text-color">{{ card.title }}</div>
+                  <div class="card-title text-color">{{ card.lenderName }}</div>
+                  <div class="flex-column">
+                    <div class="flex-row">
+                      <div class="card-text text-color-1">Tenure: {{ card.tenure }}</div>
+                      <div class="card-text text-color-1">ROI: {{ card.roi }}  </div>
+                    </div>
+                    <br>
+                  <div class="flex-row">
+                    <div class="card-text text-color-1">LTV: {{ card.ltv }}  </div>
+                    <div class="card-text text-color-1">Rating: {{ card.rating }}</div>
+                  </div> 
+                  <br>                 
                 </div>
                 </div>
               </div>
@@ -124,7 +127,7 @@ export default {
         },
         {
           "id": 2,
-          "title": "Scheme Rupeek",
+          "title": "Scheme Chola",
           "description": "This is the description of Scheme 2.",
           "ltv": "65%",
           "roi": "10%",
@@ -170,6 +173,17 @@ export default {
           "lenderName":"Amar Prabhu",
           "rating": 3.8,
            "active" :true
+        },
+        {
+          "id": 2,
+          "title": "Scheme Rupeek",
+          "description": "This is the description of Scheme 2.",
+          "ltv": "65%",
+          "roi": "10%",
+          "tenure": 7,
+          "image": "https://assets.rupeek.com/lenders/rupeek-payments-web.svg",
+          "lenderName":"rupeek",
+          "rating": 4.25
         },
         {
           "id": 6,
@@ -279,6 +293,17 @@ export default {
 <style>
 /* Optional CSS styling for the cards */
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .container-1 {
   background-color: #7393B3;
   display: flex;
@@ -312,13 +337,18 @@ export default {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .card-img-top {
   border-radius: 15px 15px 0 0;
-  height: 200px;
+  height: 100px;
   padding: 15px 15px 5px 15px;
   object-fit: contain;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-title {
@@ -361,12 +391,18 @@ export default {
 }
 
 .text-color {
-  color: #38043e
+  color: #4f0557;
+  padding: 5px 5px 7.5px 5px;
+}
+
+.text-color-1 {
+  color: #4f0557;
+  padding: 5px 5px 5px 5px;
 }
 
 .text {
   font: 50px;
-  colour: #410674;
+  colour: #511d7f;
 }
 
 
@@ -376,16 +412,16 @@ body {
   color: #333333;
 }
 .background-1 {
-  padding: 75px 0 75px 0;
-  background: hsla(347, 89%, 61%, 1);
+  padding: 30px 0 75px 0;
+  background: hsla(312, 77%, 86%, 1);
 
-  background: linear-gradient(180deg, hsla(347, 89%, 61%, 1) 0%, hsla(242, 42%, 40%, 1) 100%);
+background: linear-gradient(0deg, hsla(312, 77%, 86%, 1) 0%, hsla(220, 61%, 79%, 1) 100%);
 
-  background: -moz-linear-gradient(180deg, hsla(347, 89%, 61%, 1) 0%, hsla(242, 42%, 40%, 1) 100%);
+background: -moz-linear-gradient(0deg, hsla(312, 77%, 86%, 1) 0%, hsla(220, 61%, 79%, 1) 100%);
 
-  background: -webkit-linear-gradient(180deg, hsla(347, 89%, 61%, 1) 0%, hsla(242, 42%, 40%, 1) 100%);
+background: -webkit-linear-gradient(0deg, hsla(312, 77%, 86%, 1) 0%, hsla(220, 61%, 79%, 1) 100%);
 
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#f44369", endColorstr="#3e3b92", GradientType=1 );
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#f7c0ec", endColorstr="#a7bdea", GradientType=1 );
 
 }
 
