@@ -73,7 +73,7 @@
                 </div>
                 </div>
               </div>
-              <div class="card" v-if="card.active==='true'" >
+              <div class="card" v-if="card.active==='false'" >
                 <div class="fade">
                 <img :src="card.image" class="card-img-top" alt="Card Image">
                 <div class="card-body">
