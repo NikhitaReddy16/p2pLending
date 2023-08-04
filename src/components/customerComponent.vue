@@ -1,6 +1,6 @@
 
 <template>
-  <div class="background">
+  <div class="background-1">
     <div  v-if="!isResponse">
       <form @submit.prevent="addCustomer">
         <!-- <div class="container-1">
@@ -30,16 +30,16 @@
             </div>
           </div>  
           <div class="right">
-            <h5>Details</h5>
+            <h5 class="text-color">Details</h5>
             <!-- <p>Don't have an account? <a href="#">Creat Your Account</a> it takes less than a minute</p> -->
             <div class="inputs">
-              <input type="text" placeholder="Name">
+              <input type="text" placeholder="Name" v-model="customer.name" >
               <br>
-              <input type="text" placeholder="Gold">
+              <input type="text" placeholder="Gold" v-model="customer.gold" >
               <br>
-              <input type="text" placeholder="Amount">
+              <input type="text" placeholder="Amount" v-model="customer.amount" >
               <br>
-              <input type="text" placeholder="Tenure">
+              <input type="text" placeholder="Tenure" v-model="customer.tenure" >
             </div>
             <br><br>
             <br>
@@ -54,12 +54,20 @@
         <div class="container">
             <div class="col-md-3 mb-4" v-for="card in cards" :key="card.id">
               <div class="card">
-                <img :src="`/image1.png`" class="card-img-top" alt="Card Image">
+                <img :src="card.image" class="card-img-top" alt="Card Image">
                 <div class="card-body">
                   <h5 class="card-title">{{ card.title }}</h5>
-                  <p class="card-text">LTV: {{ card.ltv }}</p>
-                  <p class="card-text">ROI: {{ card.roi }}</p>
-                  <p class="card-text">TENURE: {{ card.tenure }}</p>
+                  <h5 class="card-title">{{ card.lenderName }}</h5>
+                  <div>
+                  <div>
+                    <p class="card-text">LTV: {{ card.ltv }}</p>
+                    <p class="card-text">ROI: {{ card.roi }}</p>
+                  </div>
+                  <div>
+                    <p class="card-text">TENURE: {{ card.tenure }}</p>
+                    <p class="card-text">RATING: {{ card.rating }}</p>
+                  </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -84,94 +92,72 @@ export default {
       },
       cards: [
         {
-          id: 1,
-          title: "Scheme 1",
-          description: "This is the description of Scheme 1.",
-          ltv: "75%",
-          roi: "9%",
-          tenure: 6,
-          image: "",
+          "id": 1,
+          "title": "Scheme Federal",
+          "description": "This is the description of Scheme 1.",
+          "ltv": "75%",
+          "roi": "9%",
+          "tenure": 6,
+          "image": "https://assets.rupeek.com/lenders/federal-payments-web.svg",
+          "lenderName":"federal",
+          "rating": 4.77
         },
         {
-          id: 1,
-          title: "Scheme 1",
-          description: "This is the description of Scheme 1.",
-          ltv: "75%",
-          roi: "9%",
-          tenure: 6,
+          "id": 2,
+          "title": "Scheme Rupeek",
+          "description": "This is the description of Scheme 2.",
+          "ltv": "65%",
+          "roi": "10%",
+          "tenure": 7,
+          "image": "https://assets.rupeek.com/lenders/rupeek-payments-web.svg",
+          "lenderName":"rupeek",
+          "rating": 4.25
         },
         {
-          id: 1,
-          title: "Scheme 1",
-          description: "This is the description of Scheme 1.",
-          ltv: "75%",
-          roi: "9%",
-          tenure: 6,
+          "id": 3,
+          "title": "User Scheme",
+          "description": "This is the description of Scheme 3.",
+          "ltv": "75%",
+          "roi": "9%",
+          "tenure": 6,
+          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/sangharshBoudhh.png",
+          "lenderName":"Sangharsh",
+          "rating": 4.2
+
         },
         {
-          id: 1,
-          title: "Scheme 1",
-          description: "This is the description of Scheme 1.",
-          ltv: "75%",
-          roi: "9%",
-          tenure: 6,
+          "id": 4,
+          "title": "User Scheme",
+          "description": "This is the description of Scheme 4.",
+          "ltv": "75%",
+          "roi": "9%",
+          "tenure": 6,
+          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/ankurSrivastava.png",
+          "lenderName":"Ankur",
+          "rating": 4.1
         },
         {
-          id: 1,
-          title: "Scheme 1",
-          description: "This is the description of Scheme 1.",
-          ltv: "75%",
-          roi: "9%",
-          tenure: 6,
+          "id": 5,
+          "title": "User Scheme",
+          "description": "This is the description of Scheme 5.",
+          "ltv": "75%",
+          "roi": "9%",
+          "tenure": 6,
+          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/amarPrabhu.png",
+          "lenderName":"Amar Prabhu",
+          "rating": 3.8
         },
         {
-          id: 1,
-          title: "Scheme 1",
-          description: "This is the description of Scheme 1.",
-          ltv: "75%",
-          roi: "9%",
-          tenure: 6,
-        },
-        {
-          id: 1,
-          title: "Scheme 1",
-          description: "This is the description of Scheme 1.",
-          ltv: "75%",
-          roi: "9%",
-          tenure: 6,
-        },
-        {
-          id: 1,
-          title: "Scheme 1",
-          description: "This is the description of Scheme 1.",
-          ltv: "75%",
-          roi: "9%",
-          tenure: 6,
-        },
-        {
-          id: 1,
-          title: "Scheme 1",
-          description: "This is the description of Scheme 1.",
-          ltv: "75%",
-          roi: "9%",
-          tenure: 6,
-        },
-        {
-          id: 1,
-          title: "Scheme 1",
-          description: "This is the description of Scheme 1.",
-          ltv: "75%",
-          roi: "9%",
-          tenure: 6,
-        },
-        {
-          id: 1,
-          title: "Scheme 1",
-          description: "This is the description of Scheme 1.",
-          ltv: "75%",
-          roi: "9%",
-          tenure: 6,
-        },
+          "id": 6,
+          "title": "User Scheme 3",
+          "description": "This is the description of Scheme 6",
+          "ltv": "75%",
+          "roi": "9%",
+          "tenure": 6,
+          "image": "https://assets.rupeek.com/engg-web/images/employeeStoriesImages/ajeetKumar.png",
+          "lenderName":"Ajeet",
+          "rating": 3.7
+        }
       ],
     };
   },
@@ -204,7 +190,7 @@ export default {
 .beige-bg-1 {
   min-height: 70vh;
   display: flex;
-  height: 200px;
+  height: 500px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -254,7 +240,7 @@ export default {
 
 /* Beige background */
 .beige-bg {
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -275,12 +261,12 @@ export default {
 }
 
 .text-color {
-  color: #FF7F00
+  color: #38043e
 }
 
 .text {
   font: 50px;
-  colour: #FF7F00;
+  colour: #410674;
 }
 
 
@@ -289,18 +275,18 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #333333;
 }
-
-.background {
+.background-1 {
   padding: 75px 0 75px 0;
-  background: hsla(265, 53%, 29%, 1);
+  background: hsla(347, 89%, 61%, 1);
 
-  background: linear-gradient(0deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
+  background: linear-gradient(180deg, hsla(347, 89%, 61%, 1) 0%, hsla(242, 42%, 40%, 1) 100%);
 
-  background: -moz-linear-gradient(0deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
+  background: -moz-linear-gradient(180deg, hsla(347, 89%, 61%, 1) 0%, hsla(242, 42%, 40%, 1) 100%);
 
-  background: -webkit-linear-gradient(0deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
+  background: -webkit-linear-gradient(180deg, hsla(347, 89%, 61%, 1) 0%, hsla(242, 42%, 40%, 1) 100%);
 
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#432371", endColorstr="#FAAE7B", GradientType=1 );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#f44369", endColorstr="#3e3b92", GradientType=1 );
+
 }
 
 .button-center {
