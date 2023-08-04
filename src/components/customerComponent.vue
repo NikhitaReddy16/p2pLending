@@ -1,31 +1,75 @@
 
 <template>
-  <div>
-    <div v-if="!isResponse">
-      <h2>Add Customer Details</h2>
+  <div class="background">
+    <div  v-if="!isResponse">
       <form @submit.prevent="addCustomer">
-        <label for="name">Name:</label>
-        <input type="text" id="name" v-model="customer.name" required>
+        <!-- <div class="container-1">
+          <div class="beige-bg-1">
+            <img :src="`/img-1.webp`" class="main-img-top" alt="Card Image">
+          </div>
+          <div class="beige-bg-1">
+            <label class="text" for="name">Name:</label>
+            <input type="text" id="name" v-model="customer.name" required>
 
-        <label for="age">Amount:</label>
-        <input type="number" id="age" v-model="customer.amount" required>
+            <label for="age">Amount:</label>
+            <input type="number" id="age" v-model="customer.amount" required>
 
-        <label for="city">Gold:</label>
-        <input type="text" id="city" v-model="customer.gold" required>
+            <label for="city">Gold:</label>
+            <input type="text" id="city" v-model="customer.gold" required>
 
-        <label for="city">Tenure:</label>
-        <input type="text" id="city" v-model="customer.tenure" required>
+            <label for="city">Tenure:</label>
+            <input type="text" id="city" v-model="customer.tenure" required>
 
-        <button type="submit">Check my Schemes</button>
+            <button type="submit">Check my Schemes</button>
+          </div>
+        </div> -->
+        <div class="box-form">
+          <div class="left">
+            <div class="overlay">
+              <img :src="`/img-1.webp`" class="main-img-top" alt="Card Image">
+            </div>
+          </div>  
+          <div class="right">
+            <h5>Details</h5>
+            <!-- <p>Don't have an account? <a href="#">Creat Your Account</a> it takes less than a minute</p> -->
+            <div class="inputs">
+              <input type="text" placeholder="Name">
+              <br>
+              <input type="text" placeholder="Gold">
+              <br>
+              <input type="text" placeholder="Amount">
+              <br>
+              <input type="text" placeholder="Tenure">
+            </div>
+            <br><br>
+            <br>
+            <button class="button">SUBMIT</button>
+          </div>         
+        </div>
       </form>
     </div>
     <div v-if="isResponse">
+      <div class="beige-bg">
+        <h1 class="text-center .text-color">YOUR SCHEMES</h1>
+        <div class="container">
+            <div class="col-md-3 mb-4" v-for="card in cards" :key="card.id">
+              <div class="card">
+                <img :src="`/image1.png`" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                  <h5 class="card-title">{{ card.title }}</h5>
+                  <p class="card-text">LTV: {{ card.ltv }}</p>
+                  <p class="card-text">ROI: {{ card.roi }}</p>
+                  <p class="card-text">TENURE: {{ card.tenure }}</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
 // import axios from 'axios';
 export default {
   name: 'AddCustomer',
@@ -38,6 +82,97 @@ export default {
         gold: null,
         tenure: null
       },
+      cards: [
+        {
+          id: 1,
+          title: "Scheme 1",
+          description: "This is the description of Scheme 1.",
+          ltv: "75%",
+          roi: "9%",
+          tenure: 6,
+          image: "",
+        },
+        {
+          id: 1,
+          title: "Scheme 1",
+          description: "This is the description of Scheme 1.",
+          ltv: "75%",
+          roi: "9%",
+          tenure: 6,
+        },
+        {
+          id: 1,
+          title: "Scheme 1",
+          description: "This is the description of Scheme 1.",
+          ltv: "75%",
+          roi: "9%",
+          tenure: 6,
+        },
+        {
+          id: 1,
+          title: "Scheme 1",
+          description: "This is the description of Scheme 1.",
+          ltv: "75%",
+          roi: "9%",
+          tenure: 6,
+        },
+        {
+          id: 1,
+          title: "Scheme 1",
+          description: "This is the description of Scheme 1.",
+          ltv: "75%",
+          roi: "9%",
+          tenure: 6,
+        },
+        {
+          id: 1,
+          title: "Scheme 1",
+          description: "This is the description of Scheme 1.",
+          ltv: "75%",
+          roi: "9%",
+          tenure: 6,
+        },
+        {
+          id: 1,
+          title: "Scheme 1",
+          description: "This is the description of Scheme 1.",
+          ltv: "75%",
+          roi: "9%",
+          tenure: 6,
+        },
+        {
+          id: 1,
+          title: "Scheme 1",
+          description: "This is the description of Scheme 1.",
+          ltv: "75%",
+          roi: "9%",
+          tenure: 6,
+        },
+        {
+          id: 1,
+          title: "Scheme 1",
+          description: "This is the description of Scheme 1.",
+          ltv: "75%",
+          roi: "9%",
+          tenure: 6,
+        },
+        {
+          id: 1,
+          title: "Scheme 1",
+          description: "This is the description of Scheme 1.",
+          ltv: "75%",
+          roi: "9%",
+          tenure: 6,
+        },
+        {
+          id: 1,
+          title: "Scheme 1",
+          description: "This is the description of Scheme 1.",
+          ltv: "75%",
+          roi: "9%",
+          tenure: 6,
+        },
+      ],
     };
   },
   methods: {
@@ -53,3 +188,292 @@ export default {
   },
 };
 </script>
+
+
+<style>
+/* Optional CSS styling for the cards */
+
+.container-1 {
+  background-color: #7393B3;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 50 0 50 0;
+}
+.beige-bg-1 {
+  min-height: 70vh;
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50 50 50 50;
+}
+
+.main-img-top {
+  border-radius: 15px 15px 0 0;
+  height: 500px;
+  padding: 15px 15px 5px 15px;
+  object-fit: contain;
+}
+
+.button {
+  background-color: #3b5998;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.card-img-top {
+  border-radius: 15px 15px 0 0;
+  height: 200px;
+  padding: 15px 15px 5px 15px;
+  object-fit: contain;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+/* Optional CSS styling for the grid */
+.container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+
+/* Beige background */
+.beige-bg {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50 0 50 0;
+}
+
+/* Center the heading */
+.text-center {
+  text-align: center;
+  color: #e9dbdb
+}
+
+/* Add padding and center the content in card-body */
+.card-body {
+  padding: 1rem;
+  text-align: center;
+}
+
+.text-color {
+  color: #FF7F00
+}
+
+.text {
+  font: 50px;
+  colour: #FF7F00;
+}
+
+
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+}
+
+.background {
+  padding: 75px 0 75px 0;
+  background: hsla(265, 53%, 29%, 1);
+
+  background: linear-gradient(0deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
+
+  background: -moz-linear-gradient(0deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
+
+  background: -webkit-linear-gradient(0deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#432371", endColorstr="#FAAE7B", GradientType=1 );
+}
+
+.button-center {
+  align-items: center;
+}
+
+.box-form {
+  margin: 0 auto;
+  width: 80%;
+  background: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 100%;
+  align-items: stretch;
+  justify-content: space-between;
+  box-shadow: 0 0 20px 6px #090b6f85;
+}
+@media (max-width: 980px) {
+  .box-form {
+    flex-flow: wrap;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+  }
+}
+.box-form div {
+  height: auto;
+}
+.box-form .left {
+  color: #FFFFFF;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("https://i.pinimg.com/736x/5d/73/ea/5d73eaabb25e3805de1f8cdea7df4a42--tumblr-backgrounds-iphone-phone-wallpapers-iphone-wallaper-tumblr.jpg");
+  overflow: hidden;
+}
+.box-form .right {
+  width: 250px;
+  padding-right: 140px;
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+.box-form .left .overlay {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  background: #5961f9ad;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box-form .left .overlay h1 {
+  font-size: 10vmax;
+  line-height: 1;
+  font-weight: 900;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.box-form .left .overlay span p {
+  margin-top: 30px;
+  font-weight: 900;
+}
+.box-form .left .overlay span a {
+  background: #3b5998;
+  color: #FFFFFF;
+  margin-top: 10px;
+  padding: 14px 50px;
+  border-radius: 100px;
+  display: inline-block;
+  box-shadow: 0 3px 6px 1px #042d4657;
+}
+.box-form .left .overlay span a:last-child {
+  background: #1dcaff;
+  margin-left: 30px;
+}
+@media (max-width: 980px) {
+  .box-form .right {
+    width: 100%;
+  }
+}
+.box-form .right h5 {
+  font-size: 6vmax;
+  line-height: 0;
+}
+.box-form .right p {
+  font-size: 14px;
+  color: #B0B3B9;
+}
+.box-form .right .inputs {
+  overflow: hidden;
+}
+.box-form .right input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+}
+.box-form .right .remember-me--forget-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box-form .right .remember-me--forget-password input {
+  margin: 0;
+  margin-right: 7px;
+  width: auto;
+}
+.box-form .right button {
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 35px;
+  margin: 0 0 0 70px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 20px 0px #6c3ccda6;
+  background-image: linear-gradient(135deg, #a397cc 10%, #6e27ea 100%);
+}
+
+label {
+  display: block;
+  position: relative;
+  margin-left: 30px;
+}
+
+label::before {
+  content: ' \f00c';
+  position: absolute;
+  font-family: FontAwesome;
+  background: transparent;
+  border: 3px solid #70F570;
+  border-radius: 4px;
+  color: transparent;
+  left: -30px;
+  transition: all 0.2s linear;
+}
+
+label:hover::before {
+  font-family: FontAwesome;
+  content: ' \f00c';
+  color: #fff;
+  cursor: pointer;
+  background: #70F570;
+}
+
+label:hover::before .text-checkbox {
+  background: #70F570;
+}
+
+label span.text-checkbox {
+  display: inline-block;
+  height: auto;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+label input[type="checkbox"] {
+  display: none;
+}
+.maincontainer {
+  background: #FFFFFF;
+}
+</style>
+
+
+
+
+
+
+
+
+
