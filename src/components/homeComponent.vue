@@ -67,21 +67,21 @@ export default {
 /* Optional CSS styling for the cards */
 
 .background {
-  padding: 30px 0 30px 0;
+  padding: 30px 0 35px 0;
   display: flex;
   flex-direction: column;
   justify-content:space-around;
   align-items: center;
   font-family: Arial, Helvetica, sans-serif;
-  background: hsla(347, 89%, 61%, 1);
+  background: hsla(312, 77%, 86%, 1);
 
-  background: linear-gradient(180deg, hsla(347, 89%, 61%, 1) 0%, hsla(242, 42%, 40%, 1) 100%);
+  background: linear-gradient(0deg, hsla(312, 77%, 86%, 1) 0%, hsla(220, 61%, 79%, 1) 100%);
 
-  background: -moz-linear-gradient(180deg, hsla(347, 89%, 61%, 1) 0%, hsla(242, 42%, 40%, 1) 100%);
+  background: -moz-linear-gradient(0deg, hsla(312, 77%, 86%, 1) 0%, hsla(220, 61%, 79%, 1) 100%);
 
-  background: -webkit-linear-gradient(180deg, hsla(347, 89%, 61%, 1) 0%, hsla(242, 42%, 40%, 1) 100%);
+  background: -webkit-linear-gradient(0deg, hsla(312, 77%, 86%, 1) 0%, hsla(220, 61%, 79%, 1) 100%);
 
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#f44369", endColorstr="#3e3b92", GradientType=1 );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#f7c0ec", endColorstr="#a7bdea", GradientType=1 );
 }
 
 .card-1 {
