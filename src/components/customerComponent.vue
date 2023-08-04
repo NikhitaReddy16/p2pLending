@@ -58,15 +58,17 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ card.title }}</h5>
                   <h5 class="card-title">{{ card.lenderName }}</h5>
-                  <div>
-                  <div>
-                    <p class="card-text">LTV: {{ card.ltv }}</p>
-                    <p class="card-text">ROI: {{ card.roi }}</p>
-                  </div>
-                  <div>
-                    <p class="card-text">TENURE: {{ card.tenure }}</p>
+                  <div class="flex-column">
+                    <div class="flex-row">
+                      <p class="card-text">TENURE: {{ card.tenure }}</p>
+                      <p class="card-text">ROI: {{ card.roi }}  </p>
+                    </div>
+                    <br>
+                  <div class="flex-row">
+                    <p class="card-text">LTV: {{ card.ltv }}  </p>
                     <p class="card-text">RATING: {{ card.rating }}</p>
-                  </div>
+                  </div> 
+                  <br>                 
                 </div>
                 </div>
               </div>
@@ -178,6 +180,17 @@ export default {
 
 <style>
 /* Optional CSS styling for the cards */
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .container-1 {
   background-color: #7393B3;
