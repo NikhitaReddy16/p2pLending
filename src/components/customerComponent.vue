@@ -54,7 +54,7 @@
         <h2 class="text-center text-color">Take a look!</h2>
         <div class="container">
             <div class="col-md-3 mb-4" v-for="card in cards" :key="card.id">
-              <div class="card">
+              <div class="card" v-if="card.active==='true'">
                 <img :src="card.image" class="card-img-top" alt="Card Image">
                 <div class="card-body">
                   <div class="card-title text-color">{{ card.title }}</div>
@@ -70,6 +70,25 @@
                     <div class="card-text text-color-1">Rating: {{ card.rating }}</div>
                   </div> 
                   <br>                 
+                </div>
+                </div>
+              </div>
+              <div class="card" v-if="card.active==='false'" >
+                <div class="fade">
+                <img :src="card.image" class="card-img-top" alt="Card Image">
+                <div class="card-body">
+                  <h5 class="card-title">{{ card.title }}</h5>
+                  <h5 class="card-title">{{ card.lenderName }}</h5>
+                  <div>
+                  <div>
+                    <p class="card-text">LTV: {{ card.ltv }}</p>
+                    <p class="card-text">ROI: {{ card.roi }}</p>
+                  </div>
+                  <div>
+                    <p class="card-text">TENURE: {{ card.tenure }}</p>
+                    <p class="card-text">RATING: {{ card.rating }}</p>
+                  </div>
+                </div>
                 </div>
                 </div>
               </div>
@@ -103,7 +122,8 @@ export default {
           "tenure": 6,
           "image": "https://assets.rupeek.com/lenders/federal-payments-web.svg",
           "lenderName":"federal",
-          "rating": 4.77
+          "rating": 4.77,
+          "active" :true
         },
         {
           "id": 2,
@@ -112,9 +132,10 @@ export default {
           "ltv": "65%",
           "roi": "10%",
           "tenure": 7,
-          "image": "https://www.cholamandalam.com/images/chola-logo.png",
-          "lenderName":"CHOLA",
-          "rating": 4.25
+          "image": "https://assets.rupeek.com/lenders/rupeek-payments-web.svg",
+          "lenderName":"rupeek",
+          "rating": 4.25,
+           "active" :true
         },
         {
           "id": 3,
@@ -125,7 +146,8 @@ export default {
           "tenure": 6,
           "image": "https://assets.rupeek.com/engg-web/images/leadersImages/sangharshBoudhh.png",
           "lenderName":"Sangharsh",
-          "rating": 4.2
+          "rating": 4.2,
+           "active" :true
 
         },
         {
@@ -137,7 +159,8 @@ export default {
           "tenure": 6,
           "image": "https://assets.rupeek.com/engg-web/images/leadersImages/ankurSrivastava.png",
           "lenderName":"Ankur",
-          "rating": 4.1
+          "rating": 4.1,
+          "active" :true
         },
         {
           "id": 5,
@@ -148,7 +171,8 @@ export default {
           "tenure": 6,
           "image": "https://assets.rupeek.com/engg-web/images/leadersImages/amarPrabhu.png",
           "lenderName":"Amar Prabhu",
-          "rating": 3.8
+          "rating": 3.8,
+           "active" :true
         },
         {
           "id": 2,
@@ -163,14 +187,90 @@ export default {
         },
         {
           "id": 6,
-          "title": "User Scheme 3",
+          "title": "Lender Scheme ",
           "description": "This is the description of Scheme 6",
           "ltv": "75%",
           "roi": "9%",
           "tenure": 6,
-          "image": "https://assets.rupeek.com/engg-web/images/employeeStoriesImages/ajeetKumar.png",
-          "lenderName":"Ajeet",
-          "rating": 3.7
+          "image": "https://www.cholamandalam.com/images/chola-logo.png",
+          "lenderName":"Cholamandalam",
+          "rating": 3.7,
+           "active" :true
+        }
+      ],
+      cards2: [
+        {
+          "id": 1,
+          "title": "Scheme Chola",
+          "description": "This is the description of Scheme 1.",
+          "ltv": "75%",
+          "roi": "9%",
+          "tenure": 6,
+          "image": "https://www.cholamandalam.com/images/chola-logo.png",
+          "lenderName":"federal",
+          "rating": 4.77,
+           "active" :true
+        },
+        {
+          "id": 2,
+          "title": "Scheme Rupeek",
+          "description": "This is the description of Scheme 2.",
+          "ltv": "65%",
+          "roi": "10%",
+          "tenure": 7,
+          "image": "https://assets.rupeek.com/lenders/rupeek-payments-web.svg",
+          "lenderName":"rupeek",
+          "rating": 4.25,
+          "active" :false
+        },
+        {
+          "id": 3,
+          "title": "User Scheme",
+          "description": "This is the description of Scheme 3.",
+          "ltv": "75%",
+          "roi": "9%",
+          "tenure": 6,
+          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/sangharshBoudhh.png",
+          "lenderName":"Sangharsh",
+          "rating": 4.2,
+           "active" :true
+
+        },
+        {
+          "id": 4,
+          "title": "User Scheme",
+          "description": "This is the description of Scheme 4.",
+          "ltv": "75%",
+          "roi": "9%",
+          "tenure": 6,
+          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/ankurSrivastava.png",
+          "lenderName":"Ankur",
+          "rating": 4.1,
+           "active" :true
+        },
+        {
+          "id": 5,
+          "title": "User Scheme",
+          "description": "This is the description of Scheme 5.",
+          "ltv": "75%",
+          "roi": "9%",
+          "tenure": 6,
+          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/amarPrabhu.png",
+          "lenderName":"Amar Prabhu",
+          "rating": 3.8,
+           "active" :true
+        },
+        {
+          "id": 6,
+          "title": "Lender Scheme",
+          "description": "This is the description of Scheme 6",
+          "ltv": "75%",
+          "roi": "9%",
+          "tenure": 6,
+          "image": "https://www.cholamandalam.com/images/chola-logo.png",
+          "lenderName":"Cholamandalam",
+          "rating": 3.7,
+           "active":false
         }
       ],
     };
@@ -488,6 +588,14 @@ label input[type="checkbox"] {
 }
 .maincontainer {
   background: #FFFFFF;
+}
+.fade {
+  opacity: 1;
+  transition: opacity 0.5s; /* You can adjust the duration to make the fade faster/slower */
+}
+
+.fade:hover {
+  opacity: 0.5; /* Set the target opacity when the element is hovered */
 }
 </style>
 
