@@ -2,7 +2,7 @@
 <template>
   <div class="background-1">
     <div  v-if="!isResponse">
-      <form @submit.prevent="addCustomer">
+      <form @submit.prevent="addLender">
         <!-- <div class="container-1">
           <div class="beige-bg-1">
             <img :src="`/img-1.webp`" class="main-img-top" alt="Card Image">
@@ -30,16 +30,16 @@
             </div>
           </div>  
           <div class="right">
-            <h5 class="text-color">Details</h5>
+            <h5 class="text-color">Lender Details</h5>
             <!-- <p>Don't have an account? <a href="#">Creat Your Account</a> it takes less than a minute</p> -->
             <div class="inputs">
-              <input type="text" placeholder="Name" v-model="customer.name" >
+              <input type="text" placeholder="Name" v-model="lender.name" >
               <br>
-              <input type="text" placeholder="Gold" v-model="customer.gold" >
+              <input type="text" placeholder="Interest" v-model="lender.interest" >
               <br>
-              <input type="text" placeholder="Amount" v-model="customer.amount" >
+              <input type="text" placeholder="LTV" v-model="lender.ltv" >
               <br>
-              <input type="text" placeholder="Tenure" v-model="customer.tenure" >
+              <input type="text" placeholder="Customer Credit Profile" v-model="lender.customercreditprofile" >
             </div>
             <br><br>
             <br>
@@ -50,10 +50,10 @@
     </div>
     <div v-if="isResponse">
       <div class="beige-bg">
-        <h1 class="text-center .text-color">YOUR SCHEMES</h1>
+        <h1 class="text-center .text-color">Lender Added Successfully</h1>
         <div class="container">
             <div class="col-md-3 mb-4" v-for="card in cards" :key="card.id">
-              <div class="card" v-if="card.active==='true'">
+              <div class="card">
                 <img :src="card.image" class="card-img-top" alt="Card Image">
                 <div class="card-body">
                   <h5 class="card-title">{{ card.title }}</h5>
@@ -67,25 +67,6 @@
                     <p class="card-text">TENURE: {{ card.tenure }}</p>
                     <p class="card-text">RATING: {{ card.rating }}</p>
                   </div>
-                </div>
-                </div>
-              </div>
-              <div class="card" v-if="card.active==='true'" >
-                <div class="fade">
-                <img :src="card.image" class="card-img-top" alt="Card Image">
-                <div class="card-body">
-                  <h5 class="card-title">{{ card.title }}</h5>
-                  <h5 class="card-title">{{ card.lenderName }}</h5>
-                  <div>
-                  <div>
-                    <p class="card-text">LTV: {{ card.ltv }}</p>
-                    <p class="card-text">ROI: {{ card.roi }}</p>
-                  </div>
-                  <div>
-                    <p class="card-text">TENURE: {{ card.tenure }}</p>
-                    <p class="card-text">RATING: {{ card.rating }}</p>
-                  </div>
-                </div>
                 </div>
                 </div>
               </div>
@@ -99,177 +80,26 @@
 <script>
 // import axios from 'axios';
 export default {
-  name: 'AddCustomer',
+  name: 'AddLender',
   data() {
     return {
       isResponse: false,
-      customer: {
+      lender: {
         name: '',
         amount: null,
         gold: null,
         tenure: null
       },
-      cards: [
-        {
-          "id": 1,
-          "title": "Scheme Federal",
-          "description": "This is the description of Scheme 1.",
-          "ltv": "75%",
-          "roi": "9%",
-          "tenure": 6,
-          "image": "https://assets.rupeek.com/lenders/federal-payments-web.svg",
-          "lenderName":"federal",
-          "rating": 4.77,
-          "active" :true
-        },
-        {
-          "id": 2,
-          "title": "Scheme Rupeek",
-          "description": "This is the description of Scheme 2.",
-          "ltv": "65%",
-          "roi": "10%",
-          "tenure": 7,
-          "image": "https://assets.rupeek.com/lenders/rupeek-payments-web.svg",
-          "lenderName":"rupeek",
-          "rating": 4.25,
-           "active" :true
-        },
-        {
-          "id": 3,
-          "title": "User Scheme",
-          "description": "This is the description of Scheme 3.",
-          "ltv": "75%",
-          "roi": "9%",
-          "tenure": 6,
-          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/sangharshBoudhh.png",
-          "lenderName":"Sangharsh",
-          "rating": 4.2,
-           "active" :true
-
-        },
-        {
-          "id": 4,
-          "title": "User Scheme",
-          "description": "This is the description of Scheme 4.",
-          "ltv": "75%",
-          "roi": "9%",
-          "tenure": 6,
-          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/ankurSrivastava.png",
-          "lenderName":"Ankur",
-          "rating": 4.1,
-          "active" :true
-        },
-        {
-          "id": 5,
-          "title": "User Scheme",
-          "description": "This is the description of Scheme 5.",
-          "ltv": "75%",
-          "roi": "9%",
-          "tenure": 6,
-          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/amarPrabhu.png",
-          "lenderName":"Amar Prabhu",
-          "rating": 3.8,
-           "active" :true
-        },
-        {
-          "id": 6,
-          "title": "Lender Scheme ",
-          "description": "This is the description of Scheme 6",
-          "ltv": "75%",
-          "roi": "9%",
-          "tenure": 6,
-          "image": "https://www.cholamandalam.com/images/chola-logo.png",
-          "lenderName":"Cholamandalam",
-          "rating": 3.7,
-           "active" :true
-        }
-      ],
-      cards2: [
-        {
-          "id": 1,
-          "title": "Scheme Chola",
-          "description": "This is the description of Scheme 1.",
-          "ltv": "75%",
-          "roi": "9%",
-          "tenure": 6,
-          "image": "https://www.cholamandalam.com/images/chola-logo.png",
-          "lenderName":"federal",
-          "rating": 4.77,
-           "active" :true
-        },
-        {
-          "id": 2,
-          "title": "Scheme Rupeek",
-          "description": "This is the description of Scheme 2.",
-          "ltv": "65%",
-          "roi": "10%",
-          "tenure": 7,
-          "image": "https://assets.rupeek.com/lenders/rupeek-payments-web.svg",
-          "lenderName":"rupeek",
-          "rating": 4.25,
-          "active" :false
-        },
-        {
-          "id": 3,
-          "title": "User Scheme",
-          "description": "This is the description of Scheme 3.",
-          "ltv": "75%",
-          "roi": "9%",
-          "tenure": 6,
-          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/sangharshBoudhh.png",
-          "lenderName":"Sangharsh",
-          "rating": 4.2,
-           "active" :true
-
-        },
-        {
-          "id": 4,
-          "title": "User Scheme",
-          "description": "This is the description of Scheme 4.",
-          "ltv": "75%",
-          "roi": "9%",
-          "tenure": 6,
-          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/ankurSrivastava.png",
-          "lenderName":"Ankur",
-          "rating": 4.1,
-           "active" :true
-        },
-        {
-          "id": 5,
-          "title": "User Scheme",
-          "description": "This is the description of Scheme 5.",
-          "ltv": "75%",
-          "roi": "9%",
-          "tenure": 6,
-          "image": "https://assets.rupeek.com/engg-web/images/leadersImages/amarPrabhu.png",
-          "lenderName":"Amar Prabhu",
-          "rating": 3.8,
-           "active" :true
-        },
-        {
-          "id": 6,
-          "title": "Lender Scheme",
-          "description": "This is the description of Scheme 6",
-          "ltv": "75%",
-          "roi": "9%",
-          "tenure": 6,
-          "image": "https://www.cholamandalam.com/images/chola-logo.png",
-          "lenderName":"Cholamandalam",
-          "rating": 3.7,
-           "active":false
-        }
-      ],
     };
   },
   methods: {
-    async addCustomer() {
+    async addLender() {
       // Emit an event with the customer data to be handled by the parent component
       // const response = await axios.post('https://api.example.com/customers', this.customer);
       const response = 200;
       if(response === 200){
         this.isResponse = true;
       }
-      console.log(this.customer.name);
     },
   },
 };
@@ -361,7 +191,8 @@ export default {
 }
 
 .text-color {
-  color: #38043e
+  color: #38043e;
+  text-align: left;
 }
 
 .text {
@@ -552,14 +383,6 @@ label input[type="checkbox"] {
 }
 .maincontainer {
   background: #FFFFFF;
-}
-.fade {
-  opacity: 1;
-  transition: opacity 0.5s; /* You can adjust the duration to make the fade faster/slower */
-}
-
-.fade:hover {
-  opacity: 0.5; /* Set the target opacity when the element is hovered */
 }
 </style>
 

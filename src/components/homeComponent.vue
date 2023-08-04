@@ -24,7 +24,9 @@
     <h1 class="text-1">RUPEEK</h1>
     <p class="text-2">...Now presenting P2P Lending</p>
     <router-link class="text-2" to="/customer">Chose your best lender -> </router-link>
-      <router-view></router-view>
+    <br>
+    <router-link class="text-2" to="/lender">New Lender OnBoarding -> </router-link>
+    <router-view></router-view>
   </div>
   <div>
 
@@ -69,7 +71,7 @@ export default {
 .text-2 {
   align-items: right;
   color: #fff;
-  font-size: 3vmax;
+  font-size: 2vmax;
   line-height: 1;
   font-weight: 900;
 }
